@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Geolocalização e Mapa</title>
+</head>
+<body>
+  <div id="map"></div>
+  
+  <script src="script.js"></script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Verificar Conexão com a Internet</title>
+</head>
+<body>
+<div id="status"></div>
+
+<script>
+// Função para atualizar a mensagem de status
+function updateStatus(online) {
+  const statusDiv = document.getElementById("status");
+  if (online) {
+    statusDiv.textContent = "Você está online!";
+    statusDiv.style.color = "green";
+  } else {
+    statusDiv.textContent = "Você está offline.";
+    statusDiv.style.color = "red";
+  }
+}
+
+// Função para verificar a conexão com a Internet
+function checkOnlineStatus() {
+  if (navigator.onLine) {
+    updateStatus(true);
+  } else {
+    updateStatus(false);
+  }
+}
+
+// Verificar o status online/offline inicialmente
+checkOnlineStatus();
+
+// Registrar um ouvinte para eventos de alteração de conexão
+window.addEventListener("online", () => updateStatus(true));
+window.addEventListener("offline", () => updateStatus(false));
+</script>
+</body>
+</html>
